@@ -1,0 +1,221 @@
+/* FONT IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* VARIABLES */
+:root {
+  /* COLORS */
+  /* Primary */
+  --violet: hsl(263, 55%, 52%);
+  --dark-grayish-blue: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  /* Whites */
+  --white: hsl(0, 0%, 100%);
+  --white-half-opacity: hsl(0, 0%, 100%, 50%);
+  --white-paragaph: hsl(0, 0%, 100%, 70%);
+  --gray-paragraph: hsl(217, 19%, 35%, 70%);
+  /* Neutral */
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  /* Accent */
+  --violet-pfp-border: #A775F2;
+
+  /* FONTS */
+  --sans-serif-font: 'Barlow Semi Condensed', sans-serif;
+}
+
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body { /* References for rest of Document */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  font-size: 13px;
+  font-family: var(--sans-serif-font);
+  background: var(--light-grayish-blue);
+}
+
+/* Main Content */
+  #content-cont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    height: 573px;
+    width: 1110px;
+    margin: 0 30px;
+  }
+    .card {
+      border-radius: 10px;
+      padding: 25px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+      .card > * {
+        z-index: 99;
+      }
+      /* Cards in Grid Positioning */
+      .card:first-of-type { /* Daniel */
+        /* Grid Position */
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        /* Rest of styling */
+        background-color: var(--violet);
+        background-image: url(images/bg-pattern-quotation.svg);
+        background-repeat: no-repeat;
+        background-position: 82% 0px;
+      }
+      .card:nth-of-type(2) { /* Jonathan */
+        /* Grid Position */
+        grid-column: 3 / 4;
+        grid-row: 1 / 2;
+        /* Rest of styling */
+        background: var(--dark-grayish-blue);
+      }
+      .card:nth-of-type(3) { /* Jeanette */
+        /* Grid Position */
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        /* Rest of styling */
+        background: var(--white);
+      }
+      .card:nth-of-type(4) { /* Patrick */
+        /* Grid Position */
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+        /* Rest of styling */
+        background: var(--dark-blue);
+      }
+      .card:last-of-type { /* Kira */
+        /* Grid Position */
+        grid-column: 4 / -1;
+        grid-row: 1 / -1;
+        /* Rest of styling */
+        background: var(--white);
+      } 
+
+      /* User Section */
+      .user {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+        .user img {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+        }
+          /* User Profile Picture Border */
+          .card:first-of-type > .user > img { /* Daniel */
+            width: 32px;
+            height: 32px;
+            border: solid 2px var(--violet-pfp-border);
+          }
+          .card:nth-of-type(4) > .user > img { /* Patrick */
+            width: 32px;
+            height: 32px;
+            border: solid 2px var(--violet);
+          }
+
+          .username-and-status {
+            margin-left: 18px;
+          }
+            .username {
+              font-size: .8rem;
+              font-weight: 400;
+              letter-spacing: .01rem;
+              color: var(--white);
+            }
+            .user-status {
+              font-size: .7rem;
+              font-weight: 200;
+              color: var(--white-half-opacity);
+            }
+            /* Alternate username & status colors */
+            .card:nth-of-type(3) .username,
+            .card:nth-of-type(5) .username { /* White Cards (Jeanette & Kira) */
+              color: var(--dark-grayish-blue);
+            }
+            .card:nth-of-type(3) .user-status,
+            .card:nth-of-type(5) .user-status { /* White Cards (Jeanette & Kira) */
+              color: var(--gray-paragraph);
+            }
+            
+      /* Testimony Section */
+      .testimony-headline {
+        font-size: 19.5px;
+        font-weight: 500;
+        letter-spacing: .02rem;
+        color: var(--light-grayish-blue);
+      }
+      /* alternate headline colors */
+      .card:first-of-type .testimony-headline { /* Daniel */
+        color: var(--white);
+      }
+      .card:nth-of-type(3) .testimony-headline,
+      .card:nth-of-type(5) .testimony-headline { /* White Cards (Jeanette & Kira) */
+        color: var(--dark-grayish-blue);
+      }
+
+      .testimony {
+        font-size: 13px;
+        font-weight: 300;
+        letter-spacing: .3px;
+        line-height: 140%;
+        color: var(--white-half-opacity);
+      }
+      /* Alternate paragraph colors */
+      .card:nth-of-type(3) .testimony,
+      .card:nth-of-type(5) .testimony { /* White Cards (Jeanette & Kira) */
+        color: var(--gray-paragraph);
+      }
+
+/* MOBILE SCREEN */
+@media (width <= 400px) {
+  
+  body {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    #content-cont {
+      grid-template-columns: repeat(1, 100%);
+      grid-template-rows: repeat(5, auto);
+      gap: 24px;
+      width: 90%;
+      height: 90%;
+      margin: 24px 0;
+    }
+      .card:first-of-type { /* Daniel */
+        background-position: 90% 0px;
+        grid-row: 1 / 3;
+        grid-column: 1 / 2;
+      }
+      .card:nth-of-type(2) { /* Jonathan */
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+      }
+      .card:nth-of-type(3) { /* Jeanette */
+        grid-row: 4 / 5;
+        grid-column: 1 / 2;
+      }
+      .card:nth-of-type(4) { /* Patrick */
+        grid-row: 5 / 7;
+        grid-column: 1 / 2;
+      }
+      .card:last-of-type { /* Kira */
+        grid-row: 7 / 9;
+        grid-column: 1 / 2;
+      }
+        .card .testimony-headline {
+          padding: 15px 0;
+        }
+}
+  

@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); /* Google font import */
+
+:root { /* Variables */
+  /* PRIMARY COLOURS */
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  /* NEUTRAL */
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+  /* FONTS */
+  --main-font: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-size: 10px;
+  letter-spacing: .5px;
+  font-family: var(--main-font);
+  background: var(--main-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  #card{
+    width: 330px;
+    height: 550px;
+    background: var(--card-bg);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+    #card-content {
+      height: 100%;
+      width: 100%;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+      #main-img {
+        width: 280px;
+        height: 280px;
+        border-radius: 10px;
+        background-image: url(images/image-equilibrium.jpg);
+        background-size: cover;
+      }
+        #main-img:hover::before {
+          content: '';
+          position: absolute;
+          width: 280px;
+          height: 280px;
+          background-color: hsl(178, 100%, 50%, .4);
+          border-radius: 10px;
+          background-image: url(images/icon-view.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          cursor: pointer;
+        }
+      #title {
+        color: var(--white);
+        font-weight: 500;
+        font-size: 22px;
+        transition: .5s;
+      }
+        #title:hover {
+          color: var(--cyan);
+          cursor: pointer;
+        }
+      #paragraph {
+        color: var(--soft-blue);
+        font-weight: 200;
+        font-size: 16px;
+      }
+      #price-and-days-cont {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+        #price-cont,
+        #days-cont {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+        }
+          #price {
+            color: var(--cyan);
+            font-weight: 500;
+            font-size: 16px;
+            margin-left: 8px;
+          }
+          #days {
+            color: var(--soft-blue);
+            font-weight: 300;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            margin: 0 0 1px 8px;
+          }
+      #line {
+        width: 100%;
+        border-top: solid .2px var(--soft-blue);
+        opacity: .3;
+      }
+      #user {
+        display: flex;
+        align-items: center;
+      }
+        #avatar-img {
+          height: 34px;
+          width: 34px;
+          border-radius: 50%;
+          border: solid 1px var(--white);
+        }
+        #creator {
+          color: var(--soft-blue);
+          font-weight: 300;
+          font-size: 14px;
+          margin: 0 18px;
+        }
+          #name {
+            color: var(--white);
+            transition: .5s;
+          }
+            #name:hover {
+              color: var(--cyan);
+              cursor: pointer;
+            }

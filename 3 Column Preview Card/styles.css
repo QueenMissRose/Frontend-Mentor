@@ -1,0 +1,150 @@
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Lexend+Deca:wght@100..900&display=swap');
+
+/* Variables */
+:root {
+/* COLORS */
+/* Primary */
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+/* Neutral */
+  --transparent-white: hsla(0, 0%, 100%, 0.75); /* Paragraphs */
+  --light-gray: hsl(0, 0%, 95%); /* Background, Headings, Buttons */
+
+/* FONTS */
+/* Heading */
+  --heading-font: 'Big Shoulders Display', sans-serif;
+/* Paragraph & Buttons */
+  --paragraph-font: 'Lexend Deca', sans-serif;
+}
+
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+/* Body styling / References */
+html {
+  font-size: 10px;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--light-gray);
+}
+
+/* Main Styling */
+  #component {
+    width: 920px;
+    height: 500px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+    .card {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      overflow: hidden;
+    }
+    /* Card Background Colors & Borders */
+    .card:first-of-type { /* Sedan */
+      background: var(--bright-orange);
+      border-radius: 10px 0 0 10px;
+    }
+    .card:nth-of-type(2) { /* SUVs */
+      background: var(--dark-cyan);
+    }
+    .card:last-of-type { /* Luxury */
+      background: var(--very-dark-cyan);
+      border-radius: 0 10px 10px 0;
+    }
+      .heading {
+        font-family: var(--heading-font);
+        color: var(--light-gray);
+        font-size: 4.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin: 32px 0 25px 0;
+        letter-spacing: .05rem;
+      }
+      .paragraph {
+        font-family: var(--paragraph-font);
+        color: var(--transparent-white);
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 2.5rem;
+      } 
+      .button {
+        margin-top: auto;
+        padding: 12px;
+        background: var(--light-gray);
+        width: 145px;
+        border-radius: 50px;
+        border: none;
+        font-family: var(--paragraph-font);
+        font-size: 1.5rem;
+        border: solid 2px var(--light-gray);
+        transition: .3s;
+      }
+      .card:first-of-type > .button { /* Sedan */
+        color: var(--bright-orange)
+      }
+      .card:nth-of-type(2) > .button { /* SUV */
+        color: var(--dark-cyan);
+      }
+      .card:last-of-type > .button { /* Luxury */
+        color: var(--very-dark-cyan);
+      }
+      /* Active States */
+      .card:first-of-type > .button:hover { /* Sedan */
+        background: var(--bright-orange);
+        color: var(--light-gray);
+        cursor: pointer;
+      }
+      .card:nth-of-type(2) > .button:hover { /* SUV */
+        background: var(--dark-cyan);
+        color: var(--light-gray);
+        cursor: pointer;
+      }
+      .card:last-of-type > .button:hover { /* Luxury */
+        background: var(--very-dark-cyan);
+        color: var(--light-gray);
+        cursor: pointer;
+      }
+
+/* MOBILE SCREENS */
+@media (width <= 400px) {
+  body {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    #component {
+      grid-template-columns: repeat(1, 1fr); /* Changing from 3 to 1 column */
+      grid-template-rows: repeat(3, auto);
+      width: 90%;
+      height: 90%;
+      margin: 24px 0;
+    }
+    .card {
+      display: flex;
+      justify-content: space-between;
+      height: 450px;
+    }
+    /* Borders */
+      .card:first-of-type { /* Sedan */
+        border-radius: 10px 10px 0 0;
+      }
+      .card:last-of-type { /* Luxury */
+        border-radius: 0 0 10px 10px;
+      }
+}
